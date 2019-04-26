@@ -9,5 +9,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        IntegrationSafe2Pay integrationSafe2Pay = new IntegrationSafe2Pay();
+        integrationSafe2Pay.execute();
     }
 }
