@@ -3,11 +3,11 @@ package com.testlibrarysafe2payandroid.testlibrarysafe2payandroid;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.librarysafe2payapiandroid.librarysafe2payapi.manager.Safe2PayConfig;
-import com.librarysafe2payapiandroid.librarysafe2payapi.manager.singleSale.SingleSaleIntegration;
-import com.librarysafe2payapiandroid.librarysafe2payapi.models.singleSale.SingleSale;
-import com.librarysafe2payapiandroid.librarysafe2payapi.models.util.ResponseAPI;
-import com.librarysafe2payapiandroid.librarysafe2payapi.services.singleSale.add.SingleSaleAddCallback;
+import com.librarysafe2payapiandroid.librarysafe2payapi.ResponseAPIModel;
+import com.librarysafe2payapiandroid.librarysafe2payapi.Safe2PayConfig;
+import com.librarysafe2payapiandroid.librarysafe2payapi.SingleSaleAddCallback;
+import com.librarysafe2payapiandroid.librarysafe2payapi.SingleSaleIntegration;
+import com.librarysafe2payapiandroid.librarysafe2payapi.SingleSaleModel;
 
 public class MainActivity extends AppCompatActivity implements SingleSaleAddCallback {
 
@@ -17,20 +17,18 @@ public class MainActivity extends AppCompatActivity implements SingleSaleAddCall
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         Safe2PayConfig.setKey("48385783758438758375");
 
         SingleSaleIntegration.addSingleSale(singleSaleAddCallback, 12.3, 2);
+    }
+
+    @Override
+    public void requestSingleSaleAddSuccess(SingleSaleModel authenticationRequest) {
 
     }
 
     @Override
-    public void requestSingleSaleAddSuccess(SingleSale authenticationRequest) {
-
-    }
-
-    @Override
-    public void requestSingleSaleAddFailed(ResponseAPI errorResponseAPI) {
+    public void requestSingleSaleAddFailed(ResponseAPIModel errorResponseAPI) {
 
     }
 }
